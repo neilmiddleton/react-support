@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ReactSupport</title>
+  <script src="https://fb.me/react-0.13.1.js"></script>
+  <script src="https://fb.me/JSXTransformer-0.13.1.js"></script>
+  <link rel="stylesheet" href="//www.herokucdn.com/purple/1.0.0/purple.min.css">
+  <script src="//www.herokucdn.com/purple/1.0.0/purple.min.js"></script>
+  <script src="/javascripts/react-router.js"></script>
+  <script src="/javascripts/md5.js"></script>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+  <div id="container" class="container"></div>
+  <script>
+    window.token = '<%= request.env['bouncer.token'] %>';
+  </script>
+  <%= yield %>
+</body>
+</html>

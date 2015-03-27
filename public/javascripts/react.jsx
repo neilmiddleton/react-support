@@ -86,10 +86,10 @@ var Comment = React.createClass({
   render: function() {
     return (
       <div className='row'>
-        <div className='col-xs-2 u-padding-Am'>
+        <div className='col-xs-4 u-padding-Am'>
           {this.props.comment.actor.email}
         </div>
-        <div className='col-xs-10'>
+        <div className='col-xs-8'>
           <div className='comment purple-box u-padding-Am u-margin-Am'>
             {this.props.comment.body}
           </div>
@@ -177,7 +177,16 @@ var Ticket = React.createClass({
         <Link to="tickets">Back to Support View</Link>
         <h2>#{this.state.ticket.id} - {this.state.ticket.subject}</h2>
         <TicketRequester requester={this.state.requester} />
-        <Comments ticketId={this.context.router.getCurrentParams().ticketId} />
+        <div className='col-xs-8'>
+          <Comments ticketId={this.context.router.getCurrentParams().ticketId} />
+        </div>
+        <div className='col-xs-4'>
+          <p>App: {this.state.ticket.app_name}</p>
+          <p>Priority: {this.state.ticket.priority}</p>
+          <p>Category: {this.state.ticket.category}</p>
+          <p>Spend: <TicketSpend spend={this.state.ticket.spend} /></p>
+          <p>Run Rate: {this.state.ticket.spend}</p>
+        </div>
       </div>
     )
   }
